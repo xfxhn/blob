@@ -21,3 +21,14 @@
 可以用exif-js获取图片的详细信息，也可以获取到Orientation属性，判断Orientation是多少然后纠正图片的角度就可以达到预期的效果了
 
 ***
+
+
+###  前阵子刚学Python，这次用Python实现了一个双向列表，并且用这个双向列表实现了FIFO，LFU，LRU这三种缓存置换算法
+
+**FIFO先进先出**
+
+**LRU最近最少使用算法**
+
+**LFU最不经常使用算法**
+
+[实现代码](https://github.com/xfxhn/cache)
