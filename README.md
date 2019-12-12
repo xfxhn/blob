@@ -49,3 +49,15 @@
 ###  一个简易MVC的架构
 
 [实现代码](https://github.com/xfxhn/MVC)
+
+******
+
+###  用children_process实现的单机集群
+
+> 因为node是单进程应用，不能利用多核CPU，虽然异步IO大大提高了node的并发量，减少线程上下文切换带来的性能开销，但是
+对于计算密集型不擅长，并且错误会引起整个应用退出，大计算量会占用CPU导致无法继续调用异步IO
+已完成的回调函数也会得不到及时调用，所以利用了children_process模块实现了node的单机集群，将计算分发到各个子进程
+将计算分解，通过master-worker的方式提高应用的健壮性。node提供了cluster帮助我们更好的构建单机集群
+这里只是针对单机集群实现的细节做了下整理，帮助理解cluster模块的原理
+
+[实现代码](https://github.com/xfxhn/blob/tree/master/process)
