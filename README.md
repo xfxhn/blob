@@ -61,3 +61,29 @@
 这里只是针对单机集群实现的细节做了下整理，帮助理解cluster模块的原理
 
 [实现代码](https://github.com/xfxhn/blob/tree/master/process)
+
+###  模拟FormData表单提交文件，上传文件
+
+> 在FormData文件夹里
+
+```js
+const formData = new Form();
+        formData.append('xf', '肖锋');
+        formData.append('dage', new Blob(['神鼎飞丹砂的'], {
+            type: 'text/plain'
+        }));
+        formData.append('obj', new Blob([JSON.stringify({xf: '肖锋'})], {
+            type: 'application/json'
+        }));
+        formData.toString().then(res => {
+            fetch('https://www.mocky.io/v2/5cc8019d300000980a055e76', {
+                method: 'POST',
+                body: res.data,
+                headers: {
+                    'Content-Type': "multipart/form-data; boundary=" + res.boundary
+                }
+            }).then(res => {
+                console.log(res)
+            })
+        })
+```
